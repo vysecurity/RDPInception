@@ -8,7 +8,7 @@ This code is weaponised but with no damage. Do not execute if you are not aware 
 
 Credits
 =======
-Authored by Vincent Yiu of MDSec ActiveBreach
+Authored by Vincent Yiu (@vysecurity) of MDSec ActiveBreach
 
 RDPInception
 ============
