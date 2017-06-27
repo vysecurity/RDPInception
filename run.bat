@@ -20,7 +20,6 @@ for /F "tokens=*" %%a in (%TEMP%\temp_00.txt) DO (
 	copy run.bat "%%a" >nul 2>&1
 	copy C:\temp\run.bat "%%a" >nul 2>&1
 	copy \\tsclient\c\temp\run.bat "%%a" >nul 2>&1
-	echo %%a
 )
 
 del /q %TEMP%\temp_00.txt >nul 2>&1

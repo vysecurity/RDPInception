@@ -19,6 +19,13 @@ The intention of this script is to allow security testers and red teamers to obt
 
 We have found this attack useful in some of our red team and adversary simulation engagements.
 
+
+Aggressor Script
+================
+1) Load RDPInception
+2) Run rdpinception command
+3) Select HTTP, HTTPS or DNS beacon that can egress.
+
 Usage
 =====
 1) Modify batch file to execute PowerShell stager, EXE or even DLL.
